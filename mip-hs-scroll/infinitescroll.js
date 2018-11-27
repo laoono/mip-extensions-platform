@@ -1,6 +1,7 @@
 /**
  * @file 无限下拉组件
- * @author
+ * @author  wangpei07
+ * @date 2017-02-15
  */
 
 define(function (require) {
@@ -204,8 +205,8 @@ define(function (require) {
                 // 若页码变化
                 if (me.currentShowPage !== currentShowPage) {
                     // 执行回调
-                    me.options.onChangeShowPN && me.options.onChangeShowPN.call(
-                        me, currentShowPage, me.currentShowPage);
+                    me.options.onChangeShowPN
+                    && me.options.onChangeShowPN.call(me, currentShowPage, me.currentShowPage);
                     me.currentShowPage = currentShowPage;
                     // 清理or回填dom
                     if (me.options.limitShowPn) {
@@ -249,7 +250,7 @@ define(function (require) {
                     // 成功
                     function (newResultArr) {
                         // 处理新增数据
-                        if (newResultArr === false || newResultArr === 'NULL') {
+                        if (!newResultArr.length || newResultArr === 'NULL') {
                             // 标记数据状态为无数据
                             me.dataStatus = 0;
                             me.options.$loading.html(me.options.loadOverHtml);

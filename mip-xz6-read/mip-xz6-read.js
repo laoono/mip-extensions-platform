@@ -17,8 +17,8 @@ define(function (require) {
                 $('.downApp,.install a,.free-book a,.rs-app-btn a').attr('href', 'https://disp.rr6.com/spread/v1/1009');
             }
             if ($(o).find('.updown > a').last().text() === '返回列表'
-            && $(o).find('.install a').attr('data-read').indexOf('http') === 0) {
-                $(o).find('.updown > a').last().attr('href', $(o).find('.install a').attr('data-read')).html('下一章');
+            && $(o).find('.rs-app-btn a').attr('data-read').indexOf('http') === 0) {
+                $(o).find('.updown > a').last().attr('href', $(o).find('.rs-app-btn a').attr('data-read')).html('下一章');
             }
         },
         ml: function (o) {
@@ -73,21 +73,23 @@ define(function (require) {
                     }
                 }
             });
-            $(o).find('#read-footer .rgChapter').click(function () {
+            $(o).find('#read-footer .rgChapter').click(function (e) {
                 $(o).find('#blockOverlay').show();
                 $(o).find('#rs-chapter').animate({right: '0'}, 50);
+                e.preventDefault();
             });
             $(o).find('#blockOverlay').click(function () {
                 $(o).find('#blockOverlay').hide();
                 $(o).find('#rs-chapter').animate({right: '-100%'}, 10);
             });
-            $(o).find('#read-footer .rgAPP').click(function () {
+            $(o).find('#read-footer .rgAPP').click(function (e) {
                 if ($(o).find('#rs-app').hasClass('active')) {
                     $(o).find('#rs-app').removeClass('active');
                 }
                 else {
                     $(o).find('#rs-app').addClass('active');
                 }
+                e.preventDefault();
             });
         },
         init: function (o) {

@@ -1,0 +1,14 @@
+{
+    "name": "mip-download-game",
+    "version": "1.0.0",
+    "description": "点击下载游戏",
+    "contributors": [
+        {
+            "name": "chm",
+            "email": "huiminchen@q-dazzle.com"
+        }
+    ],
+    "engines": {
+        "mip": ">=1.1.0"
+    }
+}
